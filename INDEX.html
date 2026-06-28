@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropmtPro Real Estate | AI Prompts That Close Deals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --primary-dark: #134e4a;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --accent-light: #fef3c7;
+            --bg: #f0fdfa;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #ccfbf1;
+            --success: #059669;
+            --shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.1), 0 2px 4px -1px rgba(15, 118, 110, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(15, 118, 110, 0.1), 0 10px 10px -5px rgba(15, 118, 110, 0.04);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+
+        .hero {
+            margin-top: 70px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-content h1 span { color: var(--accent-light); }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat { text-align: center; }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-light);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .hero-visual { position: relative; }
+
+        .prompt-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            color: var(--text);
+            max-width: 400px;
+            margin-left: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .prompt-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .prompt-card-header i { color: var(--accent); }
+        .prompt-card-header span { font-weight: 600; font-size: 0.9rem; }
+
+        .prompt-text {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            line-height: 1.5;
+            border-left: 3px solid var(--accent);
+        }
+
+        .prompt-output {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border-left: 3px solid var(--success);
+        }
+
+        .prompt-output strong {
+            color: var(--success);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:hover::before { transform: scaleX(1); }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .categories {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .prompts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .prompt-item {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .prompt-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .prompt-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .prompt-tag {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .prompt-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .prompt-preview {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            border-left: 3px solid var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .prompt-item:hover .copy-btn { opacity: 1; }
+        .copy-btn:hover { background: var(--accent); }
+
+        .prompt-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .prompt-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .demo {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+        }
+
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .demo h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo > .demo-container > p {
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .demo-box {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            color: var(--text);
+            text-align: left;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .demo-input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .demo-input-group select,
+        .demo-input-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            color: var(--text);
+        }
+
+        .demo-input-group select:focus,
+        .demo-input-group input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .generate-btn:hover { background: var(--accent-hover); }
+        .generate-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .demo-output {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--success);
+            display: none;
+        }
+
+        .demo-output.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .demo-output h4 {
+            color: var(--success);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .demo-output p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .pricing {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 1rem 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-card ul li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .pricing-card ul li i { color: var(--success); }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .pricing-card:not(.featured) .pricing-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: var(--accent);
+            border: 2px solid var(--accent);
+            color: white;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonials {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .blog {
+            padding: 5rem 2rem;
+            background: var(--bg);
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .blog-content { padding: 1.5rem; }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .blog-tag {
+            background: var(--accent-light);
+            color: var(--accent-hover);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .blog-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover { color: var(--accent); }
+
+        .faq {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover { color: var(--primary); }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--accent);
+        }
+
+        .faq-question.active i { transform: rotate(180deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .faq-answer.show {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul { list-style: none; }
+
+        .footer-section ul li { margin-bottom: 0.5rem; }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--success);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 9999;
+            font-weight: 500;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-stats { justify-content: center; }
+            .hero-visual { display: none; }
+            .pricing-card.featured { transform: scale(1); }
+            .pricing-card.featured:hover { transform: scale(1) translateY(-5px); }
+            .blog-grid, .prompts-grid { grid-template-columns: 1fr; }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-home"></i>
+                PropmtPro
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#prompts">Prompts</a></li>
+                <li><a href="#demo">Try Demo</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <a href="#pricing" class="nav-cta">Get Started</a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>AI Prompts That <span>Close Deals</span> Faster</h1>
+                <p>Stop staring at blank screens. Access 300+ battle-tested AI prompts designed specifically for real estate professionals to write listings, nurture leads, and dominate your market.</p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Get Instant Access
+                    </a>
+                    <a href="#demo" class="btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Try Free Demo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">300+</div>
+                        <div class="stat-label">Pro Prompts</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Agents Using</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10x</div>
+                        <div class="stat-label">Faster Writing</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="prompt-card">
+                    <div class="prompt-card-header">
+                        <i class="fas fa-magic"></i>
+                        <span>Listing Description Generator</span>
+                    </div>
+                    <div class="prompt-text">
+                        "Write a compelling property description for a [style] home in [neighborhood] featuring [key features]. Target [buyer type]. Emphasize [unique selling points]. Tone: [professional/warm/luxury]."
+                    </div>
+                    <div class="prompt-output">
+                        <strong><i class="fas fa-check-circle"></i> AI Output:</strong>
+                        Discover luxury living in the heart of Oak Hills! This stunning Craftsman-style home features an open-concept design, chef's kitchen with quartz countertops, and a private backyard oasis perfect for entertaining...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Everything You Need to Scale</h2>
+            <p>Our prompts are engineered by top-producing agents and copywriters to help you communicate with confidence and close more deals.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-pen-fancy"></i></div>
+                <h3>Listing Descriptions</h3>
+                <p>Craft irresistible property descriptions that highlight unique features and attract qualified buyers in seconds, not hours.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <h3>Client Communication</h3>
+                <p>Professional email templates, follow-up sequences, and negotiation scripts that build trust and move deals forward.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Market Analysis</h3>
+                <p>Generate comprehensive market reports, CMA summaries, and neighborhood insights that position you as the local expert.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-share-alt"></i></div>
+                <h3>Social Media Content</h3>
+                <p>Engaging captions, ad copy, and content calendars designed to grow your following and generate consistent leads.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Buyer & Seller Scripts</h3>
+                <p>Objection handlers, consultation scripts, and closing techniques based on psychology and proven sales frameworks.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>Marketing Campaigns</h3>
+                <p>Complete campaign briefs, direct mail copy, and open house promotions that drive attendance and offers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="prompts">
+        <div class="categories-container">
+            <div class="section-header">
+                <h2>Browse Prompt Collections</h2>
+                <p>Organized by use case so you can find exactly what you need, when you need it.</p>
+            </div>
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All Prompts</button>
+                <button class="tab-btn" data-category="listings">Listings</button>
+                <button class="tab-btn" data-category="social">Social Media</button>
+                <button class="tab-btn" data-category="email">Email Templates</button>
+                <button class="tab-btn" data-category="market">Market Analysis</button>
+                <button class="tab-btn" data-category="scripts">Scripts</button>
+                <button class="tab-btn" data-category="marketing">Marketing</button>
+            </div>
+            <div class="prompts-grid" id="promptsGrid"></div>
+        </div>
+    </section>
+
+    <section class="demo" id="demo">
+        <div class="demo-container">
+            <h2>Try It Before You Buy</h2>
+            <p>Generate a sample listing description in real-time using our AI prompt engine.</p>
+            <div class="demo-box">
+                <div class="demo-input-group">
+                    <label>Property Type</label>
+                    <select id="propertyType">
+                        <option value="single-family">Single Family Home</option>
+                        <option value="condo">Condominium</option>
+                        <option value="luxury">Luxury Estate</option>
+                        <option value="investment">Investment Property</option>
+                    </select>
+                </div>
+                <div class="demo-input-group">
+                    <label>Key Features (comma separated)</label>
+                    <input type="text" id="features" placeholder="e.g., pool, renovated kitchen, mountain views" value="pool, renovated kitchen, open floor plan">
+                </div>
+                <div class="demo-input-group">
+                    <label>Neighborhood/Area</label>
+                    <input type="text" id="neighborhood" placeholder="e.g., Downtown, Waterfront" value="Maple Grove">
+                </div>
+                <button class="generate-btn" id="generateBtn" onclick="generateDescription()">
+                    <i class="fas fa-wand-magic-sparkles"></i> Generate Description
+                </button>
+                <div class="demo-output" id="demoOutput">
+                    <h4><i class="fas fa-check-circle"></i> Generated Description</h4>
+                    <p id="outputText"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog" id="blog">
+        <div class="blog-container">
+            <div class="section-header">
+                <h2>From the Blog</h2>
+                <p>Expert insights, tips, and strategies to help you leverage AI in your real estate business.</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card" onclick="showToast('Blog article coming soon!')">
+                    <div class="blog-image"><i class="fas fa-robot"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">AI Strategy</span>
+                            <span><i class="far fa-calendar"></i> Jun 15, 2026</span>
+                        </div>
+                        <h3>10 AI Prompts That Helped Agents Close 40% More Deals in 2026</h3>
+                        <p>Discover the exact prompt frameworks top producers are using to write faster, connect deeper with clients, and close more transactions this year.</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); showToast('Full article coming soon!')">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="showToast('Blog article coming soon!')">
+                    <div class="blog-image"><i class="fas fa-pen-nib"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Copywriting</span>
+                            <span><i class="far fa-calendar"></i> Jun 10, 2026</span>
+                        </div>
+                        <h3>The Psychology of Luxury Listing Descriptions: What High-End Buyers Actually Want to Read</h3>
+                        <p>Learn how to craft descriptions that speak to emotion, lifestyle, and aspiration — not just square footage and bedroom counts.</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); showToast('Full article coming soon!')">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="showToast('Blog article coming soon!')">
+                    <div class="blog-image"><i class="fas fa-hashtag"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Social Media</span>
+                            <span><i class="far fa-calendar"></i> Jun 5, 2026</span>
+                        </div>
+                        <h3>How to Build a 30-Day Social Media Content Calendar Using AI Prompts</h3>
+                        <p>Stop posting randomly. Use this systematic approach to plan, create, and schedule a month of engaging real estate content in under 2 hours.</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); showToast('Full article coming soon!')">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="showToast('Blog article coming soon!')">
+                    <div class="blog-image"><i class="fas fa-envelope-open-text"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Email Marketing</span>
+                            <span><i class="far fa-calendar"></i> May 28, 2026</span>
+                        </div>
+                        <h3>5 Email Sequences Every Real Estate Agent Needs (With Prompt Templates)</h3>
+                        <p>From new lead nurture to post-closing follow-up, these automated email sequences will keep your pipeline full year-round.</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); showToast('Full article coming soon!')">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="showToast('Blog article coming soon!')">
+                    <div class="blog-image"><i class="fas fa-chart-pie"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Market Analysis</span>
+                            <span><i class="far fa-calendar"></i> May 20, 2026</span>
+                        </div>
+                        <h3>How to Use AI to Create Data-Driven CMA Presentations That Win Listings</h3>
+                        <p>Transform dry market data into compelling narratives that help sellers understand their home's true value and choose you as their agent.</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); showToast('Full article coming soon!')">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card" onclick="showToast('Blog article coming soon!')">
+                    <div class="blog-image"><i class="fas fa-users"></i></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Lead Generation</span>
+                            <span><i class="far fa-calendar"></i> May 12, 2026</span>
+                        </div>
+                        <h3>Expired Listings & FSBOs: AI-Powered Scripts That Actually Convert</h3>
+                        <p>Turn rejected listings and for-sale-by-owners into loyal clients with these carefully crafted, empathy-driven conversation frameworks.</p>
+                        <a href="#" class="read-more" onclick="event.preventDefault(); showToast('Full article coming soon!')">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about PropmtPro and how our AI prompts can transform your real estate business.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        What exactly are real estate AI prompts?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        AI prompts are carefully crafted text instructions that guide AI tools like ChatGPT, Claude, or Gemini to generate specific, high-quality real estate content. Our prompts are engineered by top-producing agents and professional copywriters to produce listing descriptions, emails, social posts, market analyses, and scripts that sound professional, persuasive, and personalized to your market.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Do I need to know how to use AI tools to benefit from these prompts?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Not at all! Our prompts are designed for real estate professionals, not tech experts. Each prompt comes with simple copy-paste instructions and fill-in-the-blank variables. If you can copy and paste into ChatGPT, you can use these prompts. We also include a quick-start guide for agents who are completely new to AI tools.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How are these prompts different from free prompts I can find online?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Free online prompts are typically generic and produce generic results. Our prompts are battle-tested by active real estate professionals, optimized for specific use cases (luxury listings, first-time buyers, investor properties), and structured using proven copywriting frameworks like AIDA, PAS, and StoryBrand. They include variables for personalization, tone adjustment, and market-specific language that free prompts simply don't offer.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Can I use these prompts with any AI tool?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! Our prompts are compatible with ChatGPT, Claude, Gemini, Copilot, and any other major AI language model. We provide slight variations for different tools when necessary, and all prompts are tested across multiple platforms to ensure consistent, high-quality output regardless of which AI you prefer.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        What if a prompt doesn't work well for my specific market?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Every prompt includes customizable variables for location, property type, price range, and buyer demographics. We also include "market adaptation tips" with each prompt collection to help you adjust tone and terminology for urban, suburban, rural, luxury, or investment-focused markets. Plus, Professional and Team plans include custom prompt requests.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Is this a one-time purchase or a subscription?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        All our plans are one-time purchases with lifetime access. No monthly fees, no hidden charges. You pay once and get permanent access to the prompt library plus all future updates we release for your plan tier. This includes new prompts we add as market trends and AI capabilities evolve.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How do I get started after purchasing?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Immediately after purchase, you'll receive a download link to our organized prompt library (available as PDF, Notion template, and Google Docs). You'll also get access to our quick-start video tutorial that shows you how to use your first prompt in under 5 minutes. Most agents are writing better content within their first hour.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Do you offer refunds if I'm not satisfied?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely. We offer a 30-day money-back guarantee, no questions asked. If our prompts don't save you time, improve your content quality, or help you close more deals within 30 days, simply email us for a full refund. We're confident you'll love them, but we want you to feel completely risk-free.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Can I share these prompts with my team or assistant?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        The Starter and Professional plans include a single-user license. If you have a team, virtual assistant, or transaction coordinator who needs access, our Team plan includes 5 licenses and white-label options. Contact us for custom enterprise licensing if you need access for a larger brokerage or office.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How often do you add new prompts?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        We add new prompts monthly based on user feedback, market trends, and new AI capabilities. Recent additions include prompts for video scripts, AI-generated virtual staging descriptions, and negotiation strategies for the current interest rate environment. All existing customers receive these updates free of charge.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Simple, Transparent Pricing</h2>
+            <p>Choose the plan that fits your business. All plans include lifetime updates.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">$49<span>/one-time</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 50 Core Prompts</li>
+                    <li><i class="fas fa-check"></i> Listing Descriptions</li>
+                    <li><i class="fas fa-check"></i> Basic Email Templates</li>
+                    <li><i class="fas fa-check"></i> PDF Download</li>
+                    <li><i class="fas fa-check"></i> Email Support</li>
+                </ul>
+                <button class="pricing-btn" onclick="showToast('Starter plan selected!')">Get Started</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Professional</h3>
+                <div class="price">$99<span>/one-time</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 200+ Premium Prompts</li>
+                    <li><i class="fas fa-check"></i> All Categories Included</li>
+                    <li><i class="fas fa-check"></i> Social Media Templates</li>
+                    <li><i class="fas fa-check"></i> Market Analysis Scripts</li>
+                    <li><i class="fas fa-check"></i> Video Scripts & Ad Copy</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                </ul>
+                <button class="pricing-btn" onclick="showToast('Professional plan selected!')">Get Started</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Team</h3>
+                <div class="price">$199<span>/one-time</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Everything in Pro</li>
+                    <li><i class="fas fa-check"></i> 5 Team Licenses</li>
+                    <li><i class="fas fa-check"></i> Custom Prompt Requests</li>
+                    <li><i class="fas fa-check"></i> White-label Options</li>
+                    <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                </ul>
+                <button class="pricing-btn" onclick="showToast('Team plan selected!')">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <h2>Loved by Top Producers</h2>
+                <p>See what agents across the country are saying about our prompts.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"These prompts cut my listing prep time by 70%. The luxury property descriptions are incredibly sophisticated – my sellers are blown away by the marketing copy."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Top Producer, Keller Williams</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The follow-up email sequences alone are worth the price. I've converted 3 expired leads in the first month using the re-engagement prompts. Game changer!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JR</div>
+                        <div class="author-info">
+                            <h4>James Rodriguez</h4>
+                            <p>Realtor, Coldwell Banker</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"As a new agent, I struggled with what to say. These prompts gave me the confidence to handle objections and write compelling offers. Best investment I've made."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EC</div>
+                        <div class="author-info">
+                            <h4>Emily Chen</h4>
+                            <p>New Agent, eXp Realty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Ready to Transform Your Real Estate Business?</h2>
+            <p>Join 5,000+ agents who are writing faster, selling more, and working less with AI-powered prompts.</p>
+            <a href="#pricing" class="btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+                <i class="fas fa-download"></i>
+                Get Instant Access Now
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>PropmtPro</h4>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">AI prompts engineered for real estate professionals who want to close more deals with less effort.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#prompts">Prompts</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#">Free Prompts</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2026 PropmtPro Real Estate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <script>
+        const prompts = [
+            { category: 'listings', title: 'Luxury Property Showcase', tag: 'Premium', preview: 'Craft an elegant description for a luxury property emphasizing exclusivity, high-end finishes, and lifestyle benefits. Include sensory language and aspirational lifestyle elements.', uses: '2.4k uses', time: '2 min read' },
+            { category: 'listings', title: 'First-Time Buyer Appeal', tag: 'Popular', preview: 'Write a warm, inviting description targeting first-time homebuyers, highlighting affordability, move-in readiness, and community amenities.', uses: '3.1k uses', time: '1 min read' },
+            { category: 'listings', title: 'Investment Property Pitch', tag: 'Pro', preview: 'Create a data-driven description highlighting ROI potential, rental income, and market appreciation for investor buyers.', uses: '1.8k uses', time: '2 min read' },
+            { category: 'listings', title: 'Fixer-Upper Flip Potential', tag: 'Investor', preview: 'Frame a property needing renovation as an opportunity, highlighting ARV potential, comparable sales, and contractor-friendly features.', uses: '1.2k uses', time: '2 min read' },
+            { category: 'social', title: 'Just Listed Instagram', tag: 'Viral', preview: 'Generate an engaging Instagram caption with hashtags, emojis, and a call-to-action for a new listing. Includes carousel post suggestions.', uses: '5.2k uses', time: '1 min read' },
+            { category: 'social', title: 'Market Update TikTok', tag: 'Trending', preview: 'Script a 60-second market update video that educates followers while positioning you as the expert. Includes hook and CTA.', uses: '4.1k uses', time: '1 min read' },
+            { category: 'social', title: 'Client Testimonial Post', tag: 'Social Proof', preview: 'Transform a client review into a compelling social media post that builds trust and credibility. Multiple format options.', uses: '2.9k uses', time: '1 min read' },
+            { category: 'social', title: 'Open House Invitation Reel', tag: 'Event', preview: 'Create an engaging short-form video script to drive attendance to your upcoming open house with FOMO and exclusivity.', uses: '3.3k uses', time: '1 min read' },
+            { category: 'email', title: 'New Lead Welcome Sequence', tag: 'Automation', preview: '5-email sequence to nurture new leads from first contact to consultation booking. Includes subject lines and send timing.', uses: '3.8k uses', time: '5 min read' },
+            { category: 'email', title: 'Price Reduction Notice', tag: 'Sensitive', preview: 'Tactfully communicate a price reduction to sellers while maintaining confidence in the property and market position.', uses: '1.5k uses', time: '2 min read' },
+            { category: 'email', title: 'Open House Follow-Up', tag: 'Essential', preview: 'Personalized follow-up template for open house attendees with next steps and urgency. Includes buyer and investor versions.', uses: '4.3k uses', time: '1 min read' },
+            { category: 'email', title: 'Expired Listing Revival', tag: 'Win Back', preview: 'Re-engage expired listings with empathy and a fresh strategy. Positions you as the agent who can finally get it sold.', uses: '2.1k uses', time: '2 min read' },
+            { category: 'market', title: 'Monthly Market Report', tag: 'Data', preview: 'Generate a comprehensive yet digestible monthly market analysis for your farm area with charts, insights, and predictions.', uses: '2.2k uses', time: '3 min read' },
+            { category: 'market', title: 'CMA Presentation Script', tag: 'Listing', preview: 'Walk sellers through comparable sales with confidence using this structured presentation guide with objection handlers.', uses: '1.9k uses', time: '4 min read' },
+            { category: 'market', title: 'Buyer Market Analysis', tag: 'Strategy', preview: 'Help buyers understand market conditions and make competitive offers with data-backed insights and negotiation leverage.', uses: '2.7k uses', time: '3 min read' },
+            { category: 'market', title: 'Neighborhood Deep Dive', tag: 'Local Expert', preview: 'Create a detailed neighborhood profile covering schools, amenities, commute times, and future development plans for buyer education.', uses: '1.6k uses', time: '3 min read' },
+            { category: 'scripts', title: 'Buyer Consultation Script', tag: 'Discovery', preview: 'A structured first-meeting conversation framework to uncover buyer needs, budget, timeline, and decision-making process.', uses: '3.5k uses', time: '4 min read' },
+            { category: 'scripts', title: 'Listing Presentation Close', tag: 'Closing', preview: 'Confidently ask for the listing with this proven closing script that addresses common objections before they arise.', uses: '2.8k uses', time: '2 min read' },
+            { category: 'scripts', title: 'Multiple Offer Strategy', tag: 'Negotiation', preview: 'Guide buyers through writing winning offers in competitive markets with escalation clauses, appraisal gaps, and personal letters.', uses: '4.2k uses', time: '3 min read' },
+            { category: 'scripts', title: 'FSBO Conversion Call', tag: 'Prospecting', preview: 'Turn for-sale-by-owners into clients by demonstrating value without being pushy. Empathy-driven approach with proven results.', uses: '3.1k uses', time: '3 min read' },
+            { category: 'marketing', title: 'Direct Mail Campaign', tag: 'Farming', preview: 'Write compelling direct mail pieces for geographic farming, including Just Sold, Market Update, and Free CMA offers.', uses: '1.4k uses', time: '2 min read' },
+            { category: 'marketing', title: 'Open House Promotion', tag: 'Event', preview: 'Create multi-channel promotional copy for open houses including social, email, and neighborhood flyer versions.', uses: '2.3k uses', time: '2 min read' },
+            { category: 'marketing', title: 'Agent Recruitment Ad', tag: 'Growth', preview: 'Attract top talent to your team with persuasive recruitment copy highlighting culture, training, and earning potential.', uses: '0.9k uses', time: '2 min read' },
+            { category: 'marketing', title: 'Referral Request Campaign', tag: 'Referrals', preview: 'Generate warm, non-pushy referral requests that remind past clients of your value and encourage introductions to their network.', uses: '2.5k uses', time: '2 min read' }
+        ];
+
+        function renderPrompts(category) {
+            const grid = document.getElementById('promptsGrid');
+            const filtered = category === 'all' ? prompts : prompts.filter(p => p.category === category);
+            grid.innerHTML = filtered.map(prompt => `
+                <div class="prompt-item" onclick="copyPrompt(this)">
+                    <div class="prompt-item-header">
+                        <span class="prompt-tag">${prompt.tag}</span>
+                    </div>
+                    <h3>${prompt.title}</h3>
+                    <div class="prompt-preview">
+                        ${prompt.preview}
+                        <button class="copy-btn" onclick="event.stopPropagation(); copyPrompt(this)">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="prompt-meta">
+                        <span><i class="fas fa-fire"></i> ${prompt.uses}</span>
+                        <span><i class="fas fa-clock"></i> ${prompt.time}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderPrompts(btn.dataset.category);
+            });
+        });
+
+        function copyPrompt(element) {
+            const text = element.closest('.prompt-item').querySelector('.prompt-preview').childNodes[0].textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Prompt copied to clipboard!');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function generateDescription() {
+            const btn = document.getElementById('generateBtn');
+            const output = document.getElementById('demoOutput');
+            const outputText = document.getElementById('outputText');
+            const type = document.getElementById('propertyType').value;
+            const features = document.getElementById('features').value;
+            const neighborhood = document.getElementById('neighborhood').value;
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span> Generating...';
+
+            setTimeout(() => {
+                const descriptions = {
+                    'single-family': `Welcome to your dream home in ${neighborhood}! This stunning single-family residence boasts ${features}, creating the perfect blend of comfort and style. The thoughtfully designed layout maximizes every square foot while maintaining an airy, open feel. Whether you're hosting family gatherings or enjoying quiet evenings, this home delivers on every level. Don't miss this rare opportunity to own in one of the most sought-after neighborhoods.`,
+                    'condo': `Urban living at its finest! This modern condominium in ${neighborhood} features ${features} and offers a low-maintenance lifestyle without compromising on luxury. Enjoy resort-style amenities, walkable access to dining and entertainment, and a vibrant community. Perfect for professionals and downsizers who refuse to settle for ordinary.`,
+                    'luxury': `Experience unparalleled elegance in ${neighborhood}. This extraordinary estate features ${features} and represents the pinnacle of luxury living. Every detail has been meticulously curated to create an atmosphere of sophistication and comfort. From the grand entrance to the private retreat spaces, this property is designed for those who demand the extraordinary.`,
+                    'investment': `Prime investment opportunity in ${neighborhood}! This property features ${features} and offers exceptional potential for strong returns. With rental demand surging in this area and proven appreciation trends, this is a smart addition to any portfolio. Whether you're a seasoned investor or building your first property empire, the numbers work in your favor.`
+                };
+
+                outputText.textContent = descriptions[type];
+                output.classList.add('show');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Description';
+            }, 1500);
+        }
+
+        function toggleFaq(button) {
+            button.classList.toggle('active');
+            const answer = button.nextElementSibling;
+            answer.classList.toggle('show');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        renderPrompts('all');
+    </script>
+</body>
+</html>
